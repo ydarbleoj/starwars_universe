@@ -1,0 +1,29 @@
+<header>
+  <nav class='top-bar'>
+    <div class="title">
+      <h3>Star Wars Universe</h3>
+    </div>
+    <div class="options">
+      <ul class="menu">
+      <% universe.each do |k, v| %>
+        <li id="<%= k.downcase %>"><%= k %></li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
+<script>
+  var prevItem;
+  document.querySelectorAll("li").forEach(function (item) {
+    item.addEventListener("click", function (event) {
+      event.preventDefault();
+      if (prevItem) {
+        prevItem.className = ''
+      }
+      item.classList.toggle('active')
+      prevItem = item
+
+      apiListCall(item.id);
+    })
+  })
+</script>

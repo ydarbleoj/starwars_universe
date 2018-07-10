@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://swapi.co/api/vehicles/1/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - ''
+  response:
+    status:
+      code: 404
+      message: NOT FOUND
+    headers:
+      Date:
+      - Tue, 10 Jul 2018 00:04:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d6ee3d98b9e4dac820c9984f4cc925afd1531181057; expires=Wed, 10-Jul-19
+        00:04:17 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
+      Vary:
+      - Accept, Cookie
+      Allow:
+      - GET, HEAD, OPTIONS
+      X-Frame-Options:
+      - SAMEORIGIN
+      Etag:
+      - '"8bee5c3ad44d6c57f19e49e8e76ee09e"'
+      Via:
+      - 1.1 vegur
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 437ec5aadcf68d05-PDX
+    body:
+      encoding: UTF-8
+      string: '{"detail":"Not found"}'
+    http_version: 
+  recorded_at: Tue, 10 Jul 2018 00:04:18 GMT
+recorded_with: VCR 4.0.0

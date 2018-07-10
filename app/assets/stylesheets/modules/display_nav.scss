@@ -1,0 +1,12 @@
+.display-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background-color: #f1f1f1;
+
+  .inactive {
+    color: white;
+  }
+
+}

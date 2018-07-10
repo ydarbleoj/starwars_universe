@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://swapi.co/api
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - ''
+  response:
+    status:
+      code: 301
+      message: MOVED PERMANENTLY
+    headers:
+      Date:
+      - Fri, 06 Jul 2018 01:25:40 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dea90af3579575c0cc14591cbe8f2cdf31530840340; expires=Sat, 06-Jul-19
+        01:25:40 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
+      Location:
+      - https://swapi.co/api/
+      X-Frame-Options:
+      - SAMEORIGIN
+      Via:
+      - 1.1 vegur
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 435e475fec308d41-PDX
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 06 Jul 2018 01:25:41 GMT
+- request:
+    method: get
+    uri: https://swapi.co/api/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - ''
+      Cookie:
+      - __cfduid=dea90af3579575c0cc14591cbe8f2cdf31530840340
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Jul 2018 01:25:41 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Etag:
+      - '"c1df070b0509ebefe72e85d721f40bf0"'
+      Vary:
+      - Accept, Cookie
+      Via:
+      - 1.1 vegur
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 435e476449b88d35-PDX
+    body:
+      encoding: UTF-8
+      string: '{"people":"https://swapi.co/api/people/","planets":"https://swapi.co/api/planets/","films":"https://swapi.co/api/films/","species":"https://swapi.co/api/species/","vehicles":"https://swapi.co/api/vehicles/","starships":"https://swapi.co/api/starships/"}'
+    http_version: 
+  recorded_at: Fri, 06 Jul 2018 01:25:41 GMT
+recorded_with: VCR 4.0.0
