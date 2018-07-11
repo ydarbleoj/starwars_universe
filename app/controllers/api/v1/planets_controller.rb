@@ -4,7 +4,7 @@ module Api
       before_action :set_query, only: [:index]
 
       def index
-        response = StarWarsApi.new(@query).call.parsed_response
+        response = CheckCache.new(@query, 'Planet').execute
         render json: response
       end
 
@@ -41,7 +41,7 @@ module Api
       end
 
       def set_query
-        @query = params['page'] ? '/planets/?page=' + params['page'].split('/')[0] : '/planets'
+        @query = params['page'] ? '/planets/?page=' + params['page'].split('/')[0] : '/planets/?page=1'
       end
     end
   end

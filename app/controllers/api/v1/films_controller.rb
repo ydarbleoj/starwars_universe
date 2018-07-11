@@ -4,7 +4,7 @@ module Api
       before_action :set_query, only: [:index]
 
       def index
-        response = StarWarsApi.new(@query).call.parsed_response
+        response = CheckCache.new(@query, 'Film').execute
         render json: response
       end
 
@@ -13,15 +13,6 @@ module Api
         render json: @film
       rescue ActiveRecord::RecordNotFound => e
         render json: { error: 'record not found' }
-      end
-
-      def create
-        film = Film.new(film_params)
-        if film.save!
-          render json: film
-        else
-          render json: { error: film.errors.messages }, status: :unprocessable_entity
-        end
       end
 
       private
@@ -41,7 +32,7 @@ module Api
       end
 
       def set_query
-        @query = params['page'] ? '/films/?page=' + params['page'].split('/')[0] : '/films'
+        @query = params['page'] ? '/films/?page=' + params['page'].split('/')[0] : '/films/?page=1'
       end
     end
   end

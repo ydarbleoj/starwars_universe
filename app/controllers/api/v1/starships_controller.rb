@@ -4,7 +4,7 @@ module Api
       before_action :set_query, only: [:index]
 
       def index
-        response = StarWarsApi.new(@query).call.parsed_response
+        response = CheckCache.new(@query, 'Starship').execute
         render json: response
       end
 
@@ -13,15 +13,6 @@ module Api
         render json: starship
       rescue ActiveRecord::RecordNotFound => e
         render json: { error: 'record not found' }
-      end
-
-      def create
-        starship = Starship.new(planet_params)
-        if starship.save!
-          render json: starship
-        else
-          render json: { error: starship.errors.messages }, status: :unprocessable_entity
-        end
       end
 
       private
@@ -43,7 +34,7 @@ module Api
       end
 
       def set_query
-        @query = params['page'] ? '/starships/?page=' + params['page'].split('/')[0] : '/starships'
+        @query = params['page'] ? '/starships/?page=' + params['page'].split('/')[0] : '/starships/?page=1'
       end
     end
   end

@@ -2,9 +2,7 @@ var displayPageNav = function (res, obj) {
   var el = document.getElementsByClassName('display-nav')[0];
   var page = pageNumber(res);
 
-  while (el.firstChild) {
-    el.removeChild(el.firstChild)
-  }
+  removeElements(el)
 
   el.insertAdjacentHTML('beforeend', '<div id="prev">Prev</div>');
   el.insertAdjacentHTML('beforeend', '<div>Page ' + page + '</div>');
@@ -21,6 +19,7 @@ var navButton = function (url, id, obj) {
       event.preventDefault();
 
       var data = cleanUrl(url)
+      console.log('data', data)
       apiListCall(obj, data)
     })
   } else {
@@ -34,18 +33,20 @@ var updateDisplayPage = function (res, obj) {
 }
 
 var displayPage = function (res) {
-  console.log('display', res)
   var el = document.getElementsByClassName('container')[0];
-
-  while (el.firstChild) {
-    el.removeChild(el.firstChild)
-  }
+  removeElements(el)
 
   res.forEach(function (item) {
     var str = JSON.stringify(item, null, 4)
     el.insertAdjacentHTML('beforeend', '<div id="main-display"><pre>' + str + '</pre></div>')
   })
 
+}
+
+var removeElements = function (el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild)
+  }
 }
 
 var cleanUrl = function (url) {

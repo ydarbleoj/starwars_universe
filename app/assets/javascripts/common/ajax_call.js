@@ -5,11 +5,12 @@ var apiListCall = function(obj, path) {
     url: 'http://localhost:3000/api/v1' + url + '/',
     type: 'GET',
     success: function (res) {
+      console.log('res', res)
       updateDisplayPage(res, obj)
     },
     error: function (res) {
       console.log('error', res)
     }
-  })
+  });
 }
 

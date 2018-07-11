@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_10_002614) do
+ActiveRecord::Schema.define(version: 2018_07_10_153742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2018_07_10_002614) do
     t.string "edited"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "page_caches", force: :cascade do |t|
+    t.string "url"
+    t.string "previous"
+    t.string "next"
+    t.text "ids", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["url"], name: "index_page_caches_on_url"
   end
 
   create_table "people", force: :cascade do |t|
