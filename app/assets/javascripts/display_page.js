@@ -1,3 +1,8 @@
+var updateDisplayPage = function (res, obj) {
+  displayPageNav(res, obj)
+  displayPage(res['results'])
+}
+
 var displayPageNav = function (res, obj) {
   var el = document.getElementsByClassName('display-nav')[0];
   var page = pageNumber(res);
@@ -19,17 +24,11 @@ var navButton = function (url, id, obj) {
       event.preventDefault();
 
       var data = cleanUrl(url)
-      console.log('data', data)
       apiListCall(obj, data)
     })
   } else {
     el.classList.add('inactive')
   }
-}
-
-var updateDisplayPage = function (res, obj) {
-  displayPageNav(res, obj)
-  displayPage(res['results'])
 }
 
 var displayPage = function (res) {
@@ -38,9 +37,52 @@ var displayPage = function (res) {
 
   res.forEach(function (item) {
     var str = JSON.stringify(item, null, 4)
-    el.insertAdjacentHTML('beforeend', '<div id="main-display"><pre>' + str + '</pre></div>')
-  })
+    addButtonsToJson(str, el)
+  });
+}
 
+var addButtonsToJson = function (obj, el) {
+  var i = {
+    indent: 0
+  };
+  console.log('add buttons ', obj)
+  str = obj.replace(/((?=").*)|([],])/g, function (o) {
+    var rtnFn = function () {
+      return '<div style="text-indent:40px;height:20px">' + o + '</div>';
+    }
+
+    var rtnBtn = function (i) {
+      return '<div class="btn" style="text-indent:' + i + 'px;height:20px;">' + o + '</div>';
+    }
+
+    rtnStr = 0;
+    if (o.includes(']')) {
+      rtnStr = rtnFn();
+    } else if (o.includes('https') || o.includes('url')) {
+      var ii = 40;
+      if (o.match(/:/g).length === 1) {
+        ii += 40
+      }
+      rtnStr = rtnBtn(ii);
+    } else {
+      i['indent'] += 1;
+      rtnStr = rtnFn();
+    }
+    return rtnStr;
+  });
+  el.insertAdjacentHTML('beforeend', '<div id="main-display">' + str + '</div>')
+  urlButton()
+}
+
+var urlButton = function () {
+  document.querySelectorAll(".btn").forEach(function (item) {
+    item.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      var url = cleanUrl(this.textContent).replace(/['",]+/g, '')
+      ajaxShow(url)
+    })
+  })
 }
 
 var removeElements = function (el) {

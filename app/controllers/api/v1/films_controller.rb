@@ -4,31 +4,26 @@ module Api
       before_action :set_query, only: [:index]
 
       def index
-        response = CheckCache.new(@query, 'Film').execute
+        response = CheckCache.new(@query, 'Film').page_info
         render json: response
       end
 
       def show
-        @film = Film.find(params[:id])
-        render json: @film
-      rescue ActiveRecord::RecordNotFound => e
-        render json: { error: 'record not found' }
+        response = Film.where(film_id: params[:film_id]).first
+        if response
+          render json: response
+        else
+          resposne = CheckCache.new(request.path, 'Film').record_info
+          render json: response
+        end
       end
 
       private
       def film_params
-        id = parse_url_id
         params.require(:film).permit(
-          :id, :title, :episode_id, :opening_crawl, :director, :producer,
+          :id, :film_id, :title, :episode_id, :opening_crawl, :director, :producer,
           :release_date, :url, :created, :edited, species: [], starships: [],
-          vehicles: [], characters: [], planets: []).tap do |obj|
-          obj[:film_id] = id
-        end
-      end
-
-      def parse_url_id
-        p params
-        /\d+/.match(params[:film][:url]).try(:[], 0).to_i
+          vehicles: [], characters: [], planets: [])
       end
 
       def set_query

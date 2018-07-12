@@ -4,33 +4,27 @@ module Api
       before_action :set_query, only: [:index]
 
       def index
-        response = CheckCache.new(@query, 'Starship').execute
+        response = CheckCache.new(@query, 'Starship').page_info
         render json: response
       end
 
       def show
-        starship = Starship.find(params[:id])
-        render json: starship
-      rescue ActiveRecord::RecordNotFound => e
-        render json: { error: 'record not found' }
-      end
-
-      private
-      def planet_params
-        id = parse_url_id
-        mglt = params[:starship][:MGLT]
-        params.require(:starship).permit(
-          :id, :starship_id, :model, :starship_class, :manufacturer, :length,
-          :cost_in_credits, :crew, :url, :passengers, :max_atmosphering_speed, :hyperdrive_rating,
-          :cargo_capacity, :consumables, :created, :edited, films: [],
-          pilots: []).tap do |obj|
-            obj[:starship_id] = id
-            obj[:mglt] = mglt
+        response = Starship.where(starship_id: params[:starship_id]).first
+        if response
+          render json: response
+        else
+          resposne = CheckCache.new(request.path, 'Starship').record_info
+          render json: response
         end
       end
 
-      def parse_url_id
-        /\d+/.match(params[:starship][:url]).try(:[], 0).to_i
+      private
+      def starship_params
+        params.require(:starship).permit(
+          :id, :starship_id, :model, :starship_class, :manufacturer, :length, :mglt,
+          :cost_in_credits, :crew, :url, :passengers, :max_atmosphering_speed, :hyperdrive_rating,
+          :cargo_capacity, :consumables, :created, :edited, films: [],
+          pilots: [])
       end
 
       def set_query

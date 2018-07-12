@@ -4,40 +4,26 @@ module Api
       before_action :set_query, only: [:index]
 
       def index
-        response = CheckCache.new(@query, 'Planet').execute
+        response = CheckCache.new(@query, 'Planet').page_info
         render json: response
       end
 
       def show
-        planet = Planet.find(params[:id])
-        render json: planet
-      rescue ActiveRecord::RecordNotFound => e
-        render json: { error: 'record not found' }
-      end
-
-      def create
-        planet = Planet.new(planet_params)
-        if planet.save!
-          render json: planet
+        response = Planet.where(planet_id: params[:planet_id]).first
+        if response
+          render json: response
         else
-          render json: { error: planet.errors.messages }, status: :unprocessable_entity
+          p resposne = CheckCache.new(request.path, 'Planet').record_info
+          render json: response
         end
       end
 
       private
       def planet_params
-        id = parse_url_id
         params.require(:planet).permit(
-          :id, :name, :diameter, :rotation_period, :orbital_period, :gravity,
-          :population, :climate, :url, :surface_water, :terrain, :created, :edited, residents: [],
-          films: []).tap do |obj|
-          obj[:planet_id] = id
-        end
-      end
-
-      def parse_url_id
-        p params
-        /\d+/.match(params[:planet][:url]).try(:[], 0).to_i
+          :id, :planet_id, :name, :diameter, :rotation_period, :orbital_period, :gravity,
+          :population, :climate, :url, :surface_water, :terrain, :created, :edited,
+          residents: [], films: [])
       end
 
       def set_query

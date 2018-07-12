@@ -2,7 +2,7 @@ class ObjectCreator
 
   def initialize(object, res)
     @object = object.constantize
-    @res    = res
+    @res    = res.transform_keys!(&:downcase)
     @obj    = object.downcase
     @obj_id = object.downcase + '_id'
   end

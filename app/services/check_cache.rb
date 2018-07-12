@@ -1,11 +1,11 @@
 class CheckCache
 
   def initialize(query, object)
-    @query  = query
-    @object = object
+    @query     = query
+    @object    = object
   end
 
-  def execute
+  def page_info
     page = PageCache.find_by_url(@query)
     if page
       response = PageBuild.new(page, @object).execute
@@ -15,4 +15,12 @@ class CheckCache
     end
     response
   end
+
+  def record_info
+    url = @query.split('v1')[1]
+    response = StarWarsApi.new(url).call.parsed_response
+    ObjectCreator.new(@object, response).build
+    response
+  end
+
 end

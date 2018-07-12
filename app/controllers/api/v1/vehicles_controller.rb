@@ -4,15 +4,18 @@ module Api
       before_action :set_query, only: [:index]
 
       def index
-        response = CheckCache.new(@query, 'Vehicle').execute
+        response = CheckCache.new(@query, 'Vehicle').page_info
         render json: response
       end
 
       def show
-        vehicle = Vehicle.find(params[:id])
-        render json: vehicle
-      rescue ActiveRecord::RecordNotFound => e
-        render json: { error: 'record not found' }
+        response = Vehicle.where(vehicle_id: params[:vehicle_id]).first
+        if response
+          render json: response
+        else
+          resposne = CheckCache.new(request.path, 'Vehicle').record_info
+          render json: response
+        end
       end
 
       private
@@ -22,13 +25,7 @@ module Api
           :id, :vehicle_id, :name, :model, :vehicle_class, :manufacturer, :length,
           :cost_in_credits, :crew, :passengers, :max_atmosphering_speed,
           :cargo_capacity, :consumables, :created, :url, :edited, films: [],
-          pilots: []).tap do |obj|
-          obj[:vehicle_id] = id
-        end
-      end
-
-      def parse_url_id
-        /\d+/.match(params[:vehicle][:url]).try(:[], 0).to_i
+          pilots: [])
       end
 
       def set_query

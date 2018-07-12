@@ -3,7 +3,7 @@ class PageBuild
   def initialize(page, object)
     @page    = page
     @object  = object.constantize
-    @obj_id  = (object.downcase + '_id')
+    @obj_id  = object.downcase + '_id'
   end
 
   def execute
