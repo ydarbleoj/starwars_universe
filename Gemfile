@@ -17,6 +17,9 @@ gem 'rack-cors'
 gem 'httparty'
 gem 'responders'
 gem 'typhoeus'
+gem 'foundation-rails'
+gem 'autoprefixer-rails'
+
 # Use Redis adapter to run Action Cable in production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

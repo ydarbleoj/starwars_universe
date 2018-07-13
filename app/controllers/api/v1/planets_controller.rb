@@ -13,7 +13,7 @@ module Api
         if response
           render json: response
         else
-          p resposne = CheckCache.new(request.path, 'Planet').record_info
+          response = CheckCache.new(request.path, 'Planet').record_info
           render json: response
         end
       end

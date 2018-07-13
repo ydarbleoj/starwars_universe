@@ -6,30 +6,19 @@ RSpec.describe Api::V1::FilmsController, type: :controller do
   end
 
   describe "GET #index" do
-    include_examples "index example", 'films all', '/films/'
+    include_examples "index example", 'films/?page=1'
   end
 
-  # describe "GET show" do
-  #   it "should show that object doesn't exist" do
-  #     get :show, xhr: true, params: { id: 0 }
-  #     expect(response_body).to eq({ "error" => 'record not found' })
-  #   end
-
-  #   it "should return an object with id" do
-  #     object = Film.create
-  #     get :show, xhr: true, params: { id: object.id }
-  #     expect(response_body['id']).to eq(object.id)
-  #   end
-  # end
-
-  describe "POST create" do
+  describe "GET show" do
     it "created object should match api " do
-      VCR.use_cassette('/films/1/') do
+      VCR.use_cassette('films 1') do
         obj = StarWarsApi.new('/films/1/').call.parsed_response
-        post :create, xhr: true, params: { film: obj }
+        film_id = /\d+/.match(obj['url']).try(:[], 0).to_i
+        get :show, xhr: true, params: { film_id: 1 }
+
+        obj = Film.create(obj.merge({ film_id: film_id }))
 
         new_obj = response_body
-        film_id = /\d+/.match(obj['url']).try(:[], 0).to_i
         expect(obj['title']).to eq(new_obj['title'])
         expect(obj['episode_id']).to eq(new_obj['episode_id'])
         expect(obj['opening_crawl']).to eq(new_obj['opening_crawl'])

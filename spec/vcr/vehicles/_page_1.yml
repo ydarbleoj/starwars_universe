@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://swapi.co/api/vehicles
+    uri: https://swapi.co/api/vehicles/?page=1
     body:
       encoding: US-ASCII
       string: ''
@@ -11,71 +11,28 @@ http_interactions:
       - application/json
       Authorization:
       - ''
-  response:
-    status:
-      code: 301
-      message: MOVED PERMANENTLY
-    headers:
-      Date:
-      - Tue, 10 Jul 2018 00:04:16 GMT
-      Content-Type:
-      - text/html; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - __cfduid=dc2373dde7d3a88b309840e952883e7791531181056; expires=Wed, 10-Jul-19
-        00:04:16 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
-      Location:
-      - https://swapi.co/api/vehicles/
-      X-Frame-Options:
-      - SAMEORIGIN
-      Via:
-      - 1.1 vegur
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 437ec5a01be88cf9-PDX
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Tue, 10 Jul 2018 00:04:16 GMT
-- request:
-    method: get
-    uri: https://swapi.co/api/vehicles/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - ''
-      Cookie:
-      - __cfduid=dc2373dde7d3a88b309840e952883e7791531181056
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 10 Jul 2018 00:04:17 GMT
+      - Fri, 13 Jul 2018 23:32:47 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Vary:
-      - Accept, Cookie
-      Allow:
-      - GET, HEAD, OPTIONS
+      Set-Cookie:
+      - __cfduid=d9cbd6977969fa2b20b77b7cb1933b2061531524766; expires=Sat, 13-Jul-19
+        23:32:46 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
       X-Frame-Options:
       - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Vary:
+      - Accept, Cookie
       Etag:
       - '"9392ccdae0725f9ff4c2c11cd5e9bfc4"'
       Via:
@@ -85,7 +42,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 437ec5a628f68cf3-PDX
+      - 439f8cfe6f698d05-PDX
     body:
       encoding: UTF-8
       string: '{"count":39,"next":"https://swapi.co/api/vehicles/?page=2","previous":null,"results":[{"name":"Sand
@@ -111,5 +68,5 @@ http_interactions:
         Custom Vehicle Division","cost_in_credits":"285000","length":"30","max_atmosphering_speed":"100","crew":"26","passengers":"500","cargo_capacity":"2000000","consumables":"Live
         food tanks","vehicle_class":"sail barge","pilots":[],"films":["https://swapi.co/api/films/3/"],"created":"2014-12-18T10:44:14.217000Z","edited":"2014-12-22T18:21:15.807906Z","url":"https://swapi.co/api/vehicles/24/"}]}'
     http_version: 
-  recorded_at: Tue, 10 Jul 2018 00:04:17 GMT
+  recorded_at: Fri, 13 Jul 2018 23:32:47 GMT
 recorded_with: VCR 4.0.0

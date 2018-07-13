@@ -17,9 +17,9 @@ class StarWarsApi
     when 200
       res
     when 404
-      "This is not the endpoint you're looking for"
+      { error: "This is not the endpoint you're looking for", status: :unprocessable_entity }
     when 500..600
-      'Something borked'
+      { error: 'Something borked', status: :unprocessable_entity }
     end
   end
 

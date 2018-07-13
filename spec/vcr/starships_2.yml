@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://swapi.co/api/starships/2/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - ''
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 13 Jul 2018 23:33:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=db4123450578b57406b07ef850d5c5ed11531524808; expires=Sat, 13-Jul-19
+        23:33:28 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
+      X-Frame-Options:
+      - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Vary:
+      - Accept, Cookie
+      Etag:
+      - '"70ea3307b3571d6510d97b59ed85a905"'
+      Via:
+      - 1.1 vegur
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 439f8e03bf098d41-PDX
+    body:
+      encoding: UTF-8
+      string: '{"name":"CR90 corvette","model":"CR90 corvette","manufacturer":"Corellian
+        Engineering Corporation","cost_in_credits":"3500000","length":"150","max_atmosphering_speed":"950","crew":"165","passengers":"600","cargo_capacity":"3000000","consumables":"1
+        year","hyperdrive_rating":"2.0","MGLT":"60","starship_class":"corvette","pilots":[],"films":["https://swapi.co/api/films/6/","https://swapi.co/api/films/3/","https://swapi.co/api/films/1/"],"created":"2014-12-10T14:20:33.369000Z","edited":"2014-12-22T17:35:45.408368Z","url":"https://swapi.co/api/starships/2/"}'
+    http_version: 
+  recorded_at: Fri, 13 Jul 2018 23:33:28 GMT
+recorded_with: VCR 4.0.0

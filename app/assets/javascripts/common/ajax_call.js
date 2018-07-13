@@ -8,7 +8,7 @@ var apiListCall = function(obj, path) {
       updateDisplayPage(res, obj)
     },
     error: function (res) {
-      console.log('error', res)
+      updateDisplayPage(res, obj)
     }
   });
 }
@@ -19,11 +19,10 @@ var ajaxShow = function (url) {
     type: 'GET',
     dataType: 'json',
     success: function (res) {
-      console.log('res', res)
       displayPage([res])
     },
     error: function (res) {
-      console.log('error', res)
+      displayPage([res])
     }
   })
 }

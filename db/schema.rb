@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_13_005032) do
+ActiveRecord::Schema.define(version: 2018_07_13_232343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_07_13_005032) do
     t.text "opening_crawl"
     t.string "director"
     t.string "producer"
-    t.date "release_date"
+    t.string "release_date"
     t.text "species", default: [], array: true
     t.text "starships", default: [], array: true
     t.text "vehicles", default: [], array: true

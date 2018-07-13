@@ -45,30 +45,31 @@ var displayPage = function (res) {
 
 var n = 0;
 var parsingJson = function (obj, el, ids) {
-  str = obj.replace(/((?=").*)|([],])/g, function (o) {
-    var rtnFn = function () {
+  str = obj.replace(/((?=").*)|((.*?)\],)+/g, function (o) {
+    var regTag = function () {
       return '<div style="text-indent:40px;height:20px">' + o + '</div>';
     }
 
-    var rtnBtn = function (i) {
+    var btnTag = function (i) {
       n += 1;
       var id = 'btn' + n;
+
       ids.push(id)
-      return '<div id="btn'+n+'" style="text-indent:' + i + 'px;height:20px;">' + o + '</div>';
+      return '<div id="btn'+ n +'" style="text-indent:' + i + 'px;height:20px;">' + o + '</div>';
     }
 
     rtnStr = 0;
     if (o.includes(']')) {
-      rtnStr = rtnFn();
+      rtnStr = regTag();
     } else if (o.includes('https') || o.includes('url')) {
       var ii = 40;
       if (o.match(/:/g).length === 1) {
         ii += 40
       }
 
-      rtnStr = rtnBtn(ii);
+      rtnStr = btnTag(ii);
     } else {
-      rtnStr = rtnFn();
+      rtnStr = regTag();
     }
     return rtnStr;
   });

@@ -6,17 +6,19 @@ RSpec.describe Api::V1::PeopleController, type: :controller do
   end
 
   describe "GET #index" do
-    include_examples "index example", 'people all', '/people/'
+    include_examples "index example", 'people/?page=1'
   end
 
-  describe "POST create" do
+  describe "GET show" do
     it "created object should match api " do
-      VCR.use_cassette('/people/1/') do
+      VCR.use_cassette('people 1') do
         obj = StarWarsApi.new('/people/1/').call.parsed_response
-        post :create, xhr: true, params: { person: obj }
+        person_id = /\d+/.match(obj['url']).try(:[], 0).to_i
+        get :show, xhr: true, params: { person_id: 1 }
+
+        obj = Person.create(obj.merge({ person_id: person_id }))
 
         new_obj = response_body
-        person_id = /\d+/.match(obj['url']).try(:[], 0).to_i
         expect(obj['name']).to eq(new_obj['name'])
         expect(obj['birth_year']).to eq(new_obj['birth_year'])
         expect(obj['eye_color']).to eq(new_obj['eye_color'])

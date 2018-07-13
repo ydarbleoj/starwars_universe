@@ -6,17 +6,19 @@ RSpec.describe Api::V1::StarshipsController, type: :controller do
   end
 
   describe "GET #index" do
-    include_examples "index example", 'starships all', '/starships/'
+    include_examples "index example", 'starships/?page=1'
   end
 
-  describe "POST create" do
+  describe "GET show" do
     it "created object should match api " do
-      VCR.use_cassette('/starships/2/') do
+      VCR.use_cassette('starships 2') do
         obj = StarWarsApi.new('/starships/2/').call.parsed_response
-        post :create, xhr: true, params: { starship: obj }
+        starship_id = /\d+/.match(obj['url']).try(:[], 0).to_i
+        get :show, xhr: true, params: { starship_id: 2 }
+
+        obj = Starship.create(obj.transform_keys!(&:downcase).merge({ starship_id: starship_id }))
 
         new_obj = response_body
-        starship_id = /\d+/.match(obj['url']).try(:[], 0).to_i
         expect(obj['model']).to eq(new_obj['model'])
         expect(obj['starship_class']).to eq(new_obj['starship_class'])
         expect(obj['manufacturer']).to eq(new_obj['manufacturer'])
@@ -26,7 +28,7 @@ RSpec.describe Api::V1::StarshipsController, type: :controller do
         expect(obj['passengers']).to eq(new_obj['passengers'])
         expect(obj['max_atmosphering_speed']).to eq(new_obj['max_atmosphering_speed'])
         expect(obj['hyperdrive_rating']).to eq(new_obj['hyperdrive_rating'])
-        expect(obj['MGLT']).to eq(new_obj['mglt'])
+        expect(obj['mglt']).to eq(new_obj['mglt'])
         expect(obj['cargo_capacity']).to eq(new_obj['cargo_capacity'])
         expect(obj['consumables']).to eq(new_obj['consumables'])
         expect(obj['pilots']).to eq(new_obj['pilots'])

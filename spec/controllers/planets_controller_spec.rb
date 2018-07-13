@@ -6,17 +6,19 @@ RSpec.describe Api::V1::PlanetsController, type: :controller do
   end
 
   describe "GET #index" do
-    include_examples "index example", 'planets all', '/planets/'
+    include_examples "index example", 'planets/?page=1'
   end
 
-  describe "POST create" do
+  describe "GET show" do
     it "created object should match api " do
-      VCR.use_cassette('/planets/1/') do
+      VCR.use_cassette('planets 1') do
         obj = StarWarsApi.new('/planets/1/').call.parsed_response
-        post :create, xhr: true, params: { planet: obj }
+        planet_id = /\d+/.match(obj['url']).try(:[], 0).to_i
+        get :show, xhr: true, params: { planet_id: 1 }
+
+        obj = Planet.create(obj.merge({ planet_id: planet_id }))
 
         new_obj = response_body
-        planet_id = /\d+/.match(obj['url']).try(:[], 0).to_i
         expect(obj['name']).to eq(new_obj['name'])
         expect(obj['diameter']).to eq(new_obj['diameter'])
         expect(obj['rotation_period']).to eq(new_obj['rotation_period'])

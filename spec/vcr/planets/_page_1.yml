@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://swapi.co/api/planets
+    uri: https://swapi.co/api/planets/?page=1
     body:
       encoding: US-ASCII
       string: ''
@@ -11,71 +11,28 @@ http_interactions:
       - application/json
       Authorization:
       - ''
-  response:
-    status:
-      code: 301
-      message: MOVED PERMANENTLY
-    headers:
-      Date:
-      - Mon, 09 Jul 2018 23:45:03 GMT
-      Content-Type:
-      - text/html; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - __cfduid=df7bdb5543db5adc6d9b4b16858ee92881531179903; expires=Tue, 09-Jul-19
-        23:45:03 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
-      Location:
-      - https://swapi.co/api/planets/
-      X-Frame-Options:
-      - SAMEORIGIN
-      Via:
-      - 1.1 vegur
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 437ea97cb8ef8d11-PDX
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Mon, 09 Jul 2018 23:45:04 GMT
-- request:
-    method: get
-    uri: https://swapi.co/api/planets/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - ''
-      Cookie:
-      - __cfduid=df7bdb5543db5adc6d9b4b16858ee92881531179903
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Mon, 09 Jul 2018 23:45:04 GMT
+      - Fri, 13 Jul 2018 23:25:53 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Vary:
-      - Accept, Cookie
-      Allow:
-      - GET, HEAD, OPTIONS
+      Set-Cookie:
+      - __cfduid=d84639e7bc09af8dd036c630aec2504c91531524352; expires=Sat, 13-Jul-19
+        23:25:52 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
       X-Frame-Options:
       - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Vary:
+      - Accept, Cookie
       Etag:
       - '"394d177de8df8accc41f9427b749ef4a"'
       Via:
@@ -85,7 +42,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 437ea980ae708ce1-PDX
+      - 439f82e2f8a38cd5-PDX
     body:
       encoding: UTF-8
       string: '{"count":61,"next":"https://swapi.co/api/planets/?page=2","previous":null,"results":[{"name":"Alderaan","rotation_period":"24","orbital_period":"364","diameter":"12500","climate":"temperate","gravity":"1
@@ -101,5 +58,5 @@ http_interactions:
         standard","terrain":"ocean","surface_water":"100","population":"1000000000","residents":["https://swapi.co/api/people/22/","https://swapi.co/api/people/72/","https://swapi.co/api/people/73/"],"films":["https://swapi.co/api/films/5/"],"created":"2014-12-10T12:45:06.577000Z","edited":"2014-12-20T20:58:18.434000Z","url":"https://swapi.co/api/planets/10/"},{"name":"Geonosis","rotation_period":"30","orbital_period":"256","diameter":"11370","climate":"temperate,
         arid","gravity":"0.9 standard","terrain":"rock, desert, mountain, barren","surface_water":"5","population":"100000000000","residents":["https://swapi.co/api/people/63/"],"films":["https://swapi.co/api/films/5/"],"created":"2014-12-10T12:47:22.350000Z","edited":"2014-12-20T20:58:18.437000Z","url":"https://swapi.co/api/planets/11/"}]}'
     http_version: 
-  recorded_at: Mon, 09 Jul 2018 23:45:04 GMT
+  recorded_at: Fri, 13 Jul 2018 23:25:53 GMT
 recorded_with: VCR 4.0.0

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://swapi.co/api/films
+    uri: https://swapi.co/api/films/?page=1
     body:
       encoding: US-ASCII
       string: ''
@@ -11,71 +11,28 @@ http_interactions:
       - application/json
       Authorization:
       - ''
-  response:
-    status:
-      code: 301
-      message: MOVED PERMANENTLY
-    headers:
-      Date:
-      - Mon, 09 Jul 2018 22:54:14 GMT
-      Content-Type:
-      - text/html; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - __cfduid=dfbb52c91b5452ed8ebabd973d100fc311531176854; expires=Tue, 09-Jul-19
-        22:54:14 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
-      Location:
-      - https://swapi.co/api/films/
-      X-Frame-Options:
-      - SAMEORIGIN
-      Via:
-      - 1.1 vegur
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 437e5f0bad258cdb-PDX
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Mon, 09 Jul 2018 22:54:14 GMT
-- request:
-    method: get
-    uri: https://swapi.co/api/films/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - ''
-      Cookie:
-      - __cfduid=dfbb52c91b5452ed8ebabd973d100fc311531176854
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Mon, 09 Jul 2018 22:54:15 GMT
+      - Fri, 13 Jul 2018 23:06:53 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Vary:
-      - Accept, Cookie
-      Allow:
-      - GET, HEAD, OPTIONS
+      Set-Cookie:
+      - __cfduid=d60fbf112ab3d74b90b2d9abba02a17501531523210; expires=Sat, 13-Jul-19
+        23:06:50 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
       X-Frame-Options:
       - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Vary:
+      - Accept, Cookie
       Etag:
       - '"a6f57b83572279727b3a9208d0653a82"'
       Via:
@@ -85,7 +42,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 437e5f10389a8d3b-PDX
+      - 439f670158cf8cd5-PDX
     body:
       encoding: UTF-8
       string: '{"count":7,"next":null,"previous":null,"results":[{"title":"A New Hope","episode_id":4,"opening_crawl":"It
@@ -151,5 +108,5 @@ http_interactions:
         old ally\r\nhas discovered a clue to\r\nLuke''s whereabouts....","director":"J.
         J. Abrams","producer":"Kathleen Kennedy, J. J. Abrams, Bryan Burk","release_date":"2015-12-11","characters":["https://swapi.co/api/people/1/","https://swapi.co/api/people/3/","https://swapi.co/api/people/5/","https://swapi.co/api/people/13/","https://swapi.co/api/people/14/","https://swapi.co/api/people/27/","https://swapi.co/api/people/84/","https://swapi.co/api/people/85/","https://swapi.co/api/people/86/","https://swapi.co/api/people/87/","https://swapi.co/api/people/88/"],"planets":["https://swapi.co/api/planets/61/"],"starships":["https://swapi.co/api/starships/77/","https://swapi.co/api/starships/10/"],"vehicles":[],"species":["https://swapi.co/api/species/3/","https://swapi.co/api/species/2/","https://swapi.co/api/species/1/"],"created":"2015-04-17T06:51:30.504780Z","edited":"2015-12-17T14:31:47.617768Z","url":"https://swapi.co/api/films/7/"}]}'
     http_version: 
-  recorded_at: Mon, 09 Jul 2018 22:54:15 GMT
+  recorded_at: Fri, 13 Jul 2018 23:06:53 GMT
 recorded_with: VCR 4.0.0

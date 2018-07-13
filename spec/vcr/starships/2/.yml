@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 10 Jul 2018 00:18:43 GMT
+      - Fri, 13 Jul 2018 23:28:46 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -25,14 +25,14 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d0081b870abd2e44e7989e42cc3a3fb281531181923; expires=Wed, 10-Jul-19
-        00:18:43 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
-      Vary:
-      - Accept, Cookie
-      Allow:
-      - GET, HEAD, OPTIONS
+      - __cfduid=dd47b5de40eac5a5d7f45d59bf1192aa71531524526; expires=Sat, 13-Jul-19
+        23:28:46 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
       X-Frame-Options:
       - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Vary:
+      - Accept, Cookie
       Etag:
       - '"70ea3307b3571d6510d97b59ed85a905"'
       Via:
@@ -42,12 +42,105 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 437edacbcf108cf9-PDX
+      - 439f8721f9748cf9-PDX
     body:
       encoding: UTF-8
       string: '{"name":"CR90 corvette","model":"CR90 corvette","manufacturer":"Corellian
         Engineering Corporation","cost_in_credits":"3500000","length":"150","max_atmosphering_speed":"950","crew":"165","passengers":"600","cargo_capacity":"3000000","consumables":"1
         year","hyperdrive_rating":"2.0","MGLT":"60","starship_class":"corvette","pilots":[],"films":["https://swapi.co/api/films/6/","https://swapi.co/api/films/3/","https://swapi.co/api/films/1/"],"created":"2014-12-10T14:20:33.369000Z","edited":"2014-12-22T17:35:45.408368Z","url":"https://swapi.co/api/starships/2/"}'
     http_version: 
-  recorded_at: Tue, 10 Jul 2018 00:18:43 GMT
+  recorded_at: Fri, 13 Jul 2018 23:28:47 GMT
+- request:
+    method: get
+    uri: https://swapi.co/api/starships/2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - ''
+  response:
+    status:
+      code: 301
+      message: MOVED PERMANENTLY
+    headers:
+      Date:
+      - Fri, 13 Jul 2018 23:28:47 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d338db90c303659391dca29ce79d543341531524527; expires=Sat, 13-Jul-19
+        23:28:47 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
+      X-Frame-Options:
+      - SAMEORIGIN
+      Location:
+      - https://swapi.co/api/starships/2/
+      Via:
+      - 1.1 vegur
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 439f872649aa8d11-PDX
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 13 Jul 2018 23:28:47 GMT
+- request:
+    method: get
+    uri: https://swapi.co/api/starships/2/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - ''
+      Cookie:
+      - __cfduid=d338db90c303659391dca29ce79d543341531524527
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 13 Jul 2018 23:28:48 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Vary:
+      - Accept, Cookie
+      Etag:
+      - '"70ea3307b3571d6510d97b59ed85a905"'
+      Via:
+      - 1.1 vegur
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 439f872a1c6f8cd5-PDX
+    body:
+      encoding: UTF-8
+      string: '{"name":"CR90 corvette","model":"CR90 corvette","manufacturer":"Corellian
+        Engineering Corporation","cost_in_credits":"3500000","length":"150","max_atmosphering_speed":"950","crew":"165","passengers":"600","cargo_capacity":"3000000","consumables":"1
+        year","hyperdrive_rating":"2.0","MGLT":"60","starship_class":"corvette","pilots":[],"films":["https://swapi.co/api/films/6/","https://swapi.co/api/films/3/","https://swapi.co/api/films/1/"],"created":"2014-12-10T14:20:33.369000Z","edited":"2014-12-22T17:35:45.408368Z","url":"https://swapi.co/api/starships/2/"}'
+    http_version: 
+  recorded_at: Fri, 13 Jul 2018 23:28:48 GMT
 recorded_with: VCR 4.0.0

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://swapi.co/api/starships
+    uri: https://swapi.co/api/starships/?page=1
     body:
       encoding: US-ASCII
       string: ''
@@ -11,71 +11,28 @@ http_interactions:
       - application/json
       Authorization:
       - ''
-  response:
-    status:
-      code: 301
-      message: MOVED PERMANENTLY
-    headers:
-      Date:
-      - Tue, 10 Jul 2018 00:17:02 GMT
-      Content-Type:
-      - text/html; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - __cfduid=df45fd5c2332c47cf77bd5266c84a4d5b1531181822; expires=Wed, 10-Jul-19
-        00:17:02 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
-      Location:
-      - https://swapi.co/api/starships/
-      X-Frame-Options:
-      - SAMEORIGIN
-      Via:
-      - 1.1 vegur
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 437ed8548b598cdb-PDX
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Tue, 10 Jul 2018 00:17:02 GMT
-- request:
-    method: get
-    uri: https://swapi.co/api/starships/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - ''
-      Cookie:
-      - __cfduid=df45fd5c2332c47cf77bd5266c84a4d5b1531181822
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 10 Jul 2018 00:17:03 GMT
+      - Fri, 13 Jul 2018 23:28:46 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Vary:
-      - Accept, Cookie
-      Allow:
-      - GET, HEAD, OPTIONS
+      Set-Cookie:
+      - __cfduid=def3fe4709f4c18c49a3e5bda4a9d6b0b1531524525; expires=Sat, 13-Jul-19
+        23:28:45 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
       X-Frame-Options:
       - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Vary:
+      - Accept, Cookie
       Etag:
       - '"9d11d1ceef86e0dc36273bd093bf29f7"'
       Via:
@@ -85,7 +42,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 437ed8593b008d29-PDX
+      - 439f871c69498ced-PDX
     body:
       encoding: UTF-8
       string: '{"count":37,"next":"https://swapi.co/api/starships/?page=2","previous":null,"results":[{"name":"Executor","model":"Executor-class
@@ -119,5 +76,5 @@ http_interactions:
         Drive Yards","cost_in_credits":"8500000","length":"300","max_atmosphering_speed":"800","crew":"854","passengers":"75","cargo_capacity":"6000000","consumables":"2
         years","hyperdrive_rating":"2.0","MGLT":"40","starship_class":"Escort ship","pilots":[],"films":["https://swapi.co/api/films/2/","https://swapi.co/api/films/3/"],"created":"2014-12-15T13:06:30.813000Z","edited":"2014-12-22T17:35:44.848329Z","url":"https://swapi.co/api/starships/23/"}]}'
     http_version: 
-  recorded_at: Tue, 10 Jul 2018 00:17:03 GMT
+  recorded_at: Fri, 13 Jul 2018 23:28:46 GMT
 recorded_with: VCR 4.0.0

@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 10 Jul 2018 00:25:03 GMT
+      - Fri, 13 Jul 2018 23:32:48 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -25,14 +25,14 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=de1b09bdb1f81be0e9bb401a556ed4fea1531182303; expires=Wed, 10-Jul-19
-        00:25:03 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
-      Vary:
-      - Accept, Cookie
-      Allow:
-      - GET, HEAD, OPTIONS
+      - __cfduid=d2070e55e3eb9d70a8b0a45c0cc042f9d1531524767; expires=Sat, 13-Jul-19
+        23:32:47 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
       X-Frame-Options:
       - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Vary:
+      - Accept, Cookie
       Etag:
       - '"b72b0f68ff00796a27dbd54d28a20256"'
       Via:
@@ -42,11 +42,11 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 437ee4155b288cff-PDX
+      - 439f8d054d848d0b-PDX
     body:
       encoding: UTF-8
       string: '{"name":"T-16 skyhopper","model":"T-16 skyhopper","manufacturer":"Incom
         Corporation","cost_in_credits":"14500","length":"10.4","max_atmosphering_speed":"1200","crew":"1","passengers":"1","cargo_capacity":"50","consumables":"0","vehicle_class":"repulsorcraft","pilots":[],"films":["https://swapi.co/api/films/1/"],"created":"2014-12-10T16:01:52.434000Z","edited":"2014-12-22T18:21:15.552614Z","url":"https://swapi.co/api/vehicles/6/"}'
     http_version: 
-  recorded_at: Tue, 10 Jul 2018 00:25:04 GMT
+  recorded_at: Fri, 13 Jul 2018 23:32:48 GMT
 recorded_with: VCR 4.0.0

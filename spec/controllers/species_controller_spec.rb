@@ -6,17 +6,19 @@ RSpec.describe Api::V1::SpeciesController, type: :controller do
   end
 
   describe "GET #index" do
-    include_examples "index example", 'species all', '/species/'
+    include_examples "index example", 'species/?page=1'
   end
 
-  describe "POST create" do
+  describe "GET show" do
     it "created object should match api " do
-      VCR.use_cassette('/species/1/') do
+      VCR.use_cassette('species 1') do
         obj = StarWarsApi.new('/species/1/').call.parsed_response
-        post :create, xhr: true, params: { species: obj }
+        species_id = /\d+/.match(obj['url']).try(:[], 0).to_i
+        get :show, xhr: true, params: { species_id: 1 }
+
+        obj = Species.create(obj.merge({ species_id: species_id }))
 
         new_obj = response_body
-        species_id = /\d+/.match(obj['url']).try(:[], 0).to_i
         expect(species_id).to eq(new_obj['species_id'])
         expect(obj['name']).to eq(new_obj['name'])
         expect(obj['classification']).to eq(new_obj['classification'])

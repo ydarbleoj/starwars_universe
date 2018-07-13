@@ -15,5 +15,4 @@ class PageBuild
     @object.where(id: @page.ids.map(&:to_i)).as_json
       .map { |x| x.except('id', @obj_id, 'created_at', 'updated_at') }
   end
-
 end

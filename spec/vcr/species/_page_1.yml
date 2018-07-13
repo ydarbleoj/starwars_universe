@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://swapi.co/api/species/
+    uri: https://swapi.co/api/species/?page=1
     body:
       encoding: US-ASCII
       string: ''
@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 09 Jul 2018 23:58:02 GMT
+      - Fri, 13 Jul 2018 23:27:19 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -25,14 +25,14 @@ http_interactions:
       Connection:
       - keep-alive
       Set-Cookie:
-      - __cfduid=d4b81e4d5b7a4af005307d84c0a269b0f1531180682; expires=Tue, 09-Jul-19
-        23:58:02 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
-      Vary:
-      - Accept, Cookie
-      Allow:
-      - GET, HEAD, OPTIONS
+      - __cfduid=d40487c294215986692ab3566f60de2d11531524439; expires=Sat, 13-Jul-19
+        23:27:19 GMT; path=/; domain=.swapi.co; HttpOnly; Secure
       X-Frame-Options:
       - SAMEORIGIN
+      Allow:
+      - GET, HEAD, OPTIONS
+      Vary:
+      - Accept, Cookie
       Etag:
       - '"76de0707e3e38a25482a22019b409970"'
       Via:
@@ -42,7 +42,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 437ebc7fed658d2f-PDX
+      - 439f85007bce8ce7-PDX
     body:
       encoding: UTF-8
       string: '{"count":37,"next":"https://swapi.co/api/species/?page=2","previous":null,"results":[{"name":"Hutt","classification":"gastropod","designation":"sentient","average_height":"300","skin_colors":"green,
@@ -61,5 +61,5 @@ http_interactions:
         green, grey","hair_colors":"none","eye_colors":"yellow","average_lifespan":"91","homeworld":"https://swapi.co/api/planets/34/","language":"Toydarian","people":["https://swapi.co/api/people/40/"],"films":["https://swapi.co/api/films/5/","https://swapi.co/api/films/4/"],"created":"2014-12-19T17:48:56.893000Z","edited":"2014-12-20T21:36:42.165000Z","url":"https://swapi.co/api/species/13/"},{"name":"Dug","classification":"mammal","designation":"sentient","average_height":"100","skin_colors":"brown,
         purple, grey, red","hair_colors":"none","eye_colors":"yellow, blue","average_lifespan":"unknown","homeworld":"https://swapi.co/api/planets/35/","language":"Dugese","people":["https://swapi.co/api/people/41/"],"films":["https://swapi.co/api/films/4/"],"created":"2014-12-19T17:53:11.214000Z","edited":"2014-12-20T21:36:42.167000Z","url":"https://swapi.co/api/species/14/"}]}'
     http_version: 
-  recorded_at: Mon, 09 Jul 2018 23:58:02 GMT
+  recorded_at: Fri, 13 Jul 2018 23:27:19 GMT
 recorded_with: VCR 4.0.0
