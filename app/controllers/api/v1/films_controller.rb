@@ -4,7 +4,8 @@ module Api
       before_action :set_query, only: [:index]
 
       def index
-        response = CheckCache.new(@query, 'Film').page_info
+        p 'film'
+        p response = CheckCache.new(@query, 'Film').page_info
         render json: response
       end
 

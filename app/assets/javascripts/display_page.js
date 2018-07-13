@@ -32,27 +32,29 @@ var navButton = function (url, id, obj) {
 }
 
 var displayPage = function (res) {
+  var ids = [];
   var el = document.getElementsByClassName('container')[0];
   removeElements(el)
 
   res.forEach(function (item) {
     var str = JSON.stringify(item, null, 4)
-    addButtonsToJson(str, el)
+    parsingJson(str, el, ids)
   });
+  urlButton(ids)
 }
 
-var addButtonsToJson = function (obj, el) {
-  var i = {
-    indent: 0
-  };
-  console.log('add buttons ', obj)
+var n = 0;
+var parsingJson = function (obj, el, ids) {
   str = obj.replace(/((?=").*)|([],])/g, function (o) {
     var rtnFn = function () {
       return '<div style="text-indent:40px;height:20px">' + o + '</div>';
     }
 
     var rtnBtn = function (i) {
-      return '<div class="btn" style="text-indent:' + i + 'px;height:20px;">' + o + '</div>';
+      n += 1;
+      var id = 'btn' + n;
+      ids.push(id)
+      return '<div id="btn'+n+'" style="text-indent:' + i + 'px;height:20px;">' + o + '</div>';
     }
 
     rtnStr = 0;
@@ -63,23 +65,23 @@ var addButtonsToJson = function (obj, el) {
       if (o.match(/:/g).length === 1) {
         ii += 40
       }
+
       rtnStr = rtnBtn(ii);
     } else {
-      i['indent'] += 1;
       rtnStr = rtnFn();
     }
     return rtnStr;
   });
   el.insertAdjacentHTML('beforeend', '<div id="main-display">' + str + '</div>')
-  urlButton()
 }
 
-var urlButton = function () {
-  document.querySelectorAll(".btn").forEach(function (item) {
-    item.addEventListener("click", function (event) {
+var urlButton = function (ids) {
+  ids.forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener("click", function (event) {
       event.preventDefault();
+      var url = cleanUrl(this.textContent).replace(/['",]+/g, '');
 
-      var url = cleanUrl(this.textContent).replace(/['",]+/g, '')
       ajaxShow(url)
     })
   })
