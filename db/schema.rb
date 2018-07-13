@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_11_010659) do
+ActiveRecord::Schema.define(version: 2018_07_13_005032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_07_11_010659) do
     t.integer "film_id"
     t.string "title"
     t.integer "episode_id"
-    t.string "opening_crawl"
+    t.text "opening_crawl"
     t.string "director"
     t.string "producer"
     t.date "release_date"
