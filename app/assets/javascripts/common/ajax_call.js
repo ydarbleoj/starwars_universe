@@ -19,6 +19,8 @@ var ajaxShow = function (url) {
     type: 'GET',
     dataType: 'json',
     success: function (res) {
+      console.log('kurl', url)
+      updatePageNav(url)
       displayPage([res])
     },
     error: function (res) {

@@ -11,6 +11,7 @@ module Api
       def show
         response = Starship.where(starship_id: params[:starship_id]).first
         if response
+          response = response.show_attributes
           render json: response
         else
           response = CheckCache.new(request.path, 'Starship').record_info

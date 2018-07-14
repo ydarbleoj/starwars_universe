@@ -11,6 +11,7 @@ module Api
       def show
         response = Person.where(person_id: params[:person_id]).first
         if response
+          response = response.show_attributes
           render json: response
         else
           response = CheckCache.new(request.path, 'Person').record_info

@@ -11,6 +11,7 @@ module Api
       def show
         response = Film.where(film_id: params[:film_id]).first
         if response
+          response = response.show_attributes
           render json: response
         else
           response = CheckCache.new(request.path, 'Film').record_info

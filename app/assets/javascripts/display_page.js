@@ -30,6 +30,16 @@ var navButton = function (url, id, obj) {
     el.classList.add('inactive')
   }
 }
+var updatePageNav = function (url) {
+  var id = url.split('/')[1];
+  var newActive = document.getElementById(id);
+  var curActive = document.getElementsByClassName('active')[0];
+  var pageNav = document.getElementsByClassName('display-nav')[0]
+
+  removeElements(pageNav)
+  curActive.className = ''
+  newActive.className += 'active'
+}
 
 var displayPage = function (res) {
   var ids = [];

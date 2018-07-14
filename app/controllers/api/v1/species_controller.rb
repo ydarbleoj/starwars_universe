@@ -11,6 +11,7 @@ module Api
       def show
         response = Species.where(species_id: params[:species_id]).first
         if response
+          response = response.show_attributes
           render json: response
         else
           response = CheckCache.new(request.path, 'Species').record_info

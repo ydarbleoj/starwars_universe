@@ -11,6 +11,7 @@ module Api
       def show
         response = Planet.where(planet_id: params[:planet_id]).first
         if response
+          response = response.show_attributes
           render json: response
         else
           response = CheckCache.new(request.path, 'Planet').record_info

@@ -11,6 +11,7 @@ module Api
       def show
         response = Vehicle.where(vehicle_id: params[:vehicle_id]).first
         if response
+          response = response.show_attributes
           render json: response
         else
           response = CheckCache.new(request.path, 'Vehicle').record_info
